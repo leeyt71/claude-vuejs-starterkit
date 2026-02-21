@@ -1,0 +1,6 @@
+// Vuetify SASS 변수 오버라이드
+@use 'vuetify/settings' with (
+  $body-font-family: 'Roboto',
+  $heading-font-family: 'Roboto',
+  $border-radius-root: 8px
+);
