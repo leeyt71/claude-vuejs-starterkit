@@ -1,5 +1,6 @@
 // 라우터 설정
 import { createRouter, createWebHistory } from 'vue-router'
+import { getAuthState } from '@/utils/crypto'
 
 const routes = [
   {
@@ -73,7 +74,7 @@ const router = createRouter({
 })
 
 // 전역 네비게이션 가드
-router.beforeEach((to, from, next) => {
+router.beforeEach(async (to, _from, next) => {
   // 페이지 타이틀 업데이트
   document.title = to.meta.title
     ? `${to.meta.title} | Vue Starter Kit`
@@ -81,7 +82,7 @@ router.beforeEach((to, from, next) => {
 
   // 인증이 필요한 페이지 체크
   if (to.meta.requiresAuth) {
-    const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true'
+    const isAuthenticated = await getAuthState()
     if (!isAuthenticated) {
       // 인증되지 않으면 라우트는 허용하되, 컴포넌트에서 안내 표시
       next()
