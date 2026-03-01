@@ -23,6 +23,11 @@ export function useNavigation () {
       icon: 'mdi-routes',
       to: '/router',
     },
+    {
+      title: '게시판예제',
+      icon: 'mdi-clipboard-text',
+      to: '/board',
+    },
   ])
 
   return { menuItems }

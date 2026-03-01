@@ -64,6 +64,12 @@ const routes = [
           },
         ],
       },
+      {
+        path: 'board',
+        name: 'board',
+        component: () => import('@/views/NoticeBoardExampleView.vue'),
+        meta: { title: '게시판예제' },
+      },
     ],
   },
 ]
